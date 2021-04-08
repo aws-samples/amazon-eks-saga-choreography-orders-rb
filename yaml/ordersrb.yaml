@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: eks-saga
+  name: eks-saga-orders-rb
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: eks-saga-orders-rb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: eks-saga-orders-rb
+    spec:
+      serviceAccountName: eks-saga
+      containers:
+        - name: eks-saga-orders-rb
+          image: accountId.dkr.ecr.regionId.amazonaws.com/eks-saga/ordersrb:0.0.0
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: eks-saga-orders-rb
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+              protocol: "TCP"
+      nodeSelector:
+        role: db

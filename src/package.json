@@ -1,0 +1,35 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "Orders rollback microservice for EKS saga demo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aws-samples/eks-saga-orders-rb.git"
+  },
+  "keywords": [
+    "kubernetes",
+    "microservices",
+    "saga",
+    "amazon-eks",
+    "aws-sns",
+    "aws-sqs",
+    "aws-rds",
+    "nodejs"
+  ],
+  "author": "Nagesh Subrahmanyam",
+  "license": "MIT-0",
+  "bugs": {
+    "url": "https://github.com/aws-samples/eks-saga-orders-rb/issues"
+  },
+  "homepage": "https://github.com/aws-samples/eks-saga-orders-rb#readme",
+  "dependencies": {
+    "aws-sdk": "^2.815.0",
+    "moment-timezone": "^0.5.32",
+    "mysql2": "^2.2.5",
+    "winston": "^3.3.3"
+  }
+}
